@@ -1,9 +1,9 @@
-package com.example.printme;
+package com.example.printme.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class PrintController {
     @FXML
     private Label welcomeText;
 
