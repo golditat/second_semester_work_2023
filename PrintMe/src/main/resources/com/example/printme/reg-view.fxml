@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.printme.controllers.RegController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="243.0" layoutX="200.0" layoutY="93.0" stroke="BLACK" strokeType="INSIDE" width="198.0" />
+      <Button layoutX="222.0" layoutY="241.0" mnemonicParsing="false"  prefHeight="72.0" prefWidth="150.0" style="-fx-background-color: #eec300;" text="Button" textFill="DODGERBLUE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         </Button>
+      <TextField alignment="CENTER" layoutX="223.0" layoutY="175.0">
+         <font>
+            <Font size="13.0" />
+         </font></TextField>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="118.0" prefHeight="32.0" prefWidth="156.0" text="ENTER YOUR NAME" textAlignment="CENTER" textFill="#eec300" textOverrun="WORD_ELLIPSIS" wrapText="true">
+         <font>
+            <Font name="Calibri" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
