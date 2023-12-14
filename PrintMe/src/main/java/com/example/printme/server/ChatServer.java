@@ -16,8 +16,8 @@ public class ChatServer {
     private Map<String, String> clientRooms;
     private Map<String, Integer> clientCount;
 
-    public ChatServer(int port) throws IOException {
-        serverSocket = new ServerSocket(port);
+    public ChatServer() throws IOException {
+        serverSocket = new ServerSocket(1099);
         executorService = Executors.newCachedThreadPool();
         clients = new ConcurrentHashMap<>();
         clientRooms = new ConcurrentHashMap<>();
@@ -29,6 +29,7 @@ public class ChatServer {
         try {
             while (true) {
                 Socket clientSocket = serverSocket.accept();
+                System.out.println("client done");
                 executorService.submit(new ClientHandler(clientSocket));
             }
         } catch (IOException e) {
@@ -111,7 +112,7 @@ public class ChatServer {
 
     public static void main(String[] args) {
         try {
-            ChatServer server = new ChatServer(12345);
+            ChatServer server = new ChatServer();
             server.start();
         } catch (IOException e) {
             e.printStackTrace();

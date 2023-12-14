@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de87716d-d262-4bd9-a727-82e7e564a50d" name="Changes" comment="create views">
+    <list default="true" id="de87716d-d262-4bd9-a727-82e7e564a50d" name="Changes" comment="the creation of a multi-user chat with rooms has begun">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/client/Client2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ChatRoom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/application/PrintMeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/application/PrintMeApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/printme/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/printme/game-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -60,7 +69,8 @@
       <option name="presentableId" value="Default" />
       <updated>1701613639542</updated>
       <workItem from="1701613640419" duration="2304000" />
-      <workItem from="1701865950187" duration="13619000" />
+      <workItem from="1701865950187" duration="22148000" />
+      <workItem from="1702575128497" duration="4614000" />
     </task>
     <task id="LOCAL-00001" summary="create project">
       <option name="closed" value="true" />
@@ -86,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701897447232</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="the creation of a multi-user chat with rooms has begun">
+      <option name="closed" value="true" />
+      <created>1702236045392</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702236045392</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +125,7 @@
     <MESSAGE value="create project" />
     <MESSAGE value="create project structure" />
     <MESSAGE value="create views" />
-    <option name="LAST_COMMIT_MESSAGE" value="create views" />
+    <MESSAGE value="the creation of a multi-user chat with rooms has begun" />
+    <option name="LAST_COMMIT_MESSAGE" value="the creation of a multi-user chat with rooms has begun" />
   </component>
 </project>

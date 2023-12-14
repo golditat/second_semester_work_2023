@@ -9,4 +9,6 @@ module com.example.printme {
     exports com.example.printme.application;
     opens com.example.printme.application to javafx.fxml;
     opens com.example.printme.controllers to javafx.fxml;
+
+    exports com.example.printme.client;
 }

@@ -1,12 +1,11 @@
 package com.example.printme.controllers;
 
+import com.example.printme.helpers.Message;
+import com.example.printme.server.Server;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class GameController {
 
@@ -25,6 +24,15 @@ public class GameController {
     @FXML
     private ListView chatPane;
 
+    @FXML
+    private Label username;
+
+    @FXML
+    private Label messageText;
+
+    @FXML
+    private TextArea textArea;
+
 
     public void initialize() {
         GraphicsContext g = canvas.getGraphicsContext2D();
@@ -41,6 +49,11 @@ public class GameController {
                 g.fillRect(x, y, size, size);
             }
         });
+    }
+
+    public void message(){
+        username.setText("user");
+        messageText.setText(textArea.getText());
     }
 
 }

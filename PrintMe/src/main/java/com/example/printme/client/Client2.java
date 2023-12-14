@@ -2,10 +2,8 @@ package com.example.printme.client;
 
 import com.example.printme.application.PrintMeApplication;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -14,8 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
-public class Client extends Application {
-
+public class Client2 extends Application {
     private Socket socket;
     private BufferedReader reader;
     private OutputStreamWriter writer;
