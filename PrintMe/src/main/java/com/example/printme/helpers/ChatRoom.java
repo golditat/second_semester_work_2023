@@ -31,6 +31,15 @@ public class ChatRoom {
         }
         // Записать сообщение в лог комнаты
     }
+    public void broadcastCanvasState(CanvasState canvasState) throws IOException {
+        for (ServerHandlerClient client : clients) {
+            // Не отправлять сообщение отправителю
+            //if (!client.getUsername().equals(message.userName)) {
+            client.sendCanvasState(canvasState);
+            //}
+        }
+        // Записать сообщение в лог комнаты
+    }
 
     public void addClient(ServerHandlerClient client) {
         clients.add(client);

@@ -1,5 +1,7 @@
 package com.example.printme.controllers;
 
+import com.example.printme.helpers.CanvasState;
+import com.example.printme.helpers.ColorSerial;
 import com.example.printme.helpers.Message;
 import com.example.printme.helpers.MessageListener;
 import com.example.printme.server.Server;
@@ -8,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 
 import java.io.IOException;
 
@@ -49,13 +52,30 @@ public class GameController {
             double x = e.getX() - size / 2;
             double y = e.getY() - size / 2;
 
+            CanvasState canvasState = new CanvasState(size, x, y, eraser.isSelected(), new ColorSerial(colorPicker.getValue()));
+
             if (eraser.isSelected()) {
                 g.clearRect(x, y, size, size);
             } else {
                 g.setFill(colorPicker.getValue());
                 g.fillRect(x, y, size, size);
             }
+            try {
+                sendCanvasState(canvasState);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         });
+    }
+    private void sendCanvasState(CanvasState canvasState) throws IOException {
+//        try {
+//            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+//            out.writeObject(canvasState);
+//            out.flush();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        messageListener.onCanvasStateAdded(canvasState);
     }
 
     public void addmessage() throws IOException {
@@ -73,5 +93,14 @@ public class GameController {
             messageText.setText(message.text);
             System.out.println("get message");
         });
+    }
+    public void onGettingCanvasState(CanvasState canvasState){
+        GraphicsContext g = canvas.getGraphicsContext2D();
+        if (canvasState.isEraser()) {
+            g.clearRect(canvasState.getX(), canvasState.getY(), canvasState.getSize(), canvasState.getSize());
+        } else {
+            g.setFill(new Color(canvasState.getColor().getRed(), canvasState.getColor().getGreen(), canvasState.getColor().getBlue(), canvasState.getColor().getOpacity()));
+            g.fillRect(canvasState.getX(), canvasState.getY(), canvasState.getSize(), canvasState.getSize());
+        }
     }
 }

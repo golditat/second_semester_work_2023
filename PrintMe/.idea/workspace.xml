@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de87716d-d262-4bd9-a727-82e7e564a50d" name="Changes" comment="the creation of a multi-user chat with rooms">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ClientHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/MessageListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ServerHandlerClient.java" afterDir="false" />
+    <list default="true" id="de87716d-d262-4bd9-a727-82e7e564a50d" name="Changes" comment="done multi-user chat with rooms">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/CanvasState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ColorSerial.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/application/PrintMeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/application/PrintMeApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/client/Client2.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ChatRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ChatServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/printme/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/printme/game-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/MessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ServerHandlerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ServerHandlerClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +68,7 @@
       <updated>1701613639542</updated>
       <workItem from="1701613640419" duration="2304000" />
       <workItem from="1701865950187" duration="22148000" />
-      <workItem from="1702575128497" duration="22667000" />
+      <workItem from="1702575128497" duration="25747000" />
     </task>
     <task id="LOCAL-00001" summary="create project">
       <option name="closed" value="true" />
@@ -115,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702585822131</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="done multi-user chat with rooms">
+      <option name="closed" value="true" />
+      <created>1702644016168</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702644016168</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +141,8 @@
     <MESSAGE value="create views" />
     <MESSAGE value="the creation of a multi-user chat with rooms has begun" />
     <MESSAGE value="the creation of a multi-user chat with rooms" />
-    <option name="LAST_COMMIT_MESSAGE" value="the creation of a multi-user chat with rooms" />
+    <MESSAGE value="done multi-user chat with rooms" />
+    <option name="LAST_COMMIT_MESSAGE" value="done multi-user chat with rooms" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

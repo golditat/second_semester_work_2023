@@ -39,11 +39,21 @@ public class ClientHandler implements Runnable, MessageListener, Serializable {
     public void run() {
         try {
             while (true) {
-                Message message = (Message) reader.readObject();
-                if (message == null || message.equals("/exit")) {
-                    continue;
-                } else {
-                    onMessageGetting(message);
+                Object o = reader.readObject();
+                if(o instanceof Message) {
+                    Message message = (Message) o;
+                    if (message == null || message.equals("/exit")) {
+                        continue;
+                    } else {
+                        onMessageGetting(message);
+                    }
+                }else{
+                    CanvasState canvasState = (CanvasState) o;
+                    if(canvasState == null){
+                        continue;
+                    }else{
+                        onCanvasStateGetting(canvasState);
+                    }
                 }
             }
         } catch (IOException e) {
@@ -60,6 +70,11 @@ public class ClientHandler implements Runnable, MessageListener, Serializable {
         writer.writeObject(message);
     }
 
+    public void sendCanvasState(CanvasState canvasState) throws IOException{
+        System.out.println("canvas state done");
+        writer.writeObject(canvasState);
+    }
+
     @Override
     public void onMessageAdded(String sender, String message) throws IOException {
         System.out.println("message " + message);
@@ -72,5 +87,18 @@ public class ClientHandler implements Runnable, MessageListener, Serializable {
         GameController controller = loader.getController();
         controller.onGettingMessage(message);
         System.out.println("handler get message");
+    }
+
+    @Override
+    public void onCanvasStateAdded(CanvasState canvasState) throws IOException {
+        System.out.println("hendler added canvas state"+canvasState.toString());
+        sendCanvasState(canvasState);
+    }
+
+    @Override
+    public void onCanvasStateGetting(CanvasState canvasState) throws IOException {
+        GameController controller = loader.getController();
+        controller.onGettingCanvasState(canvasState);
+        System.out.println("handler get canvas state");
     }
 }

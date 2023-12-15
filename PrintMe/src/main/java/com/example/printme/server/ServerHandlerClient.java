@@ -1,5 +1,6 @@
 package com.example.printme.server;
 
+import com.example.printme.helpers.CanvasState;
 import com.example.printme.helpers.ChatRoom;
 import com.example.printme.helpers.Message;
 
@@ -49,12 +50,23 @@ public class ServerHandlerClient implements Runnable{
     public void run() {
         try {
             while (true) {
-                Message message = (Message) reader.readObject();
-                if (message == null || message.equals("/exit")) {
-                    continue;
-                } else {
-                    System.out.println("user send message" + socet.toString());
-                    clientRoom.broadcastMessage(message);
+                Object o = reader.readObject();
+                if(o instanceof Message) {
+                    Message message = (Message) o;
+                    if (message == null || message.equals("/exit")) {
+                        continue;
+                    } else {
+                        System.out.println("user send message" + socet.toString());
+                        clientRoom.broadcastMessage(message);
+                    }
+                }else{
+                    CanvasState canvasState = (CanvasState) o;
+                    if(canvasState == null){
+                        continue;
+                    }else{
+                        System.out.println("server getting canvasstate" + socet.toString());
+                        clientRoom.broadcastCanvasState(canvasState);
+                    }
                 }
             }
         } catch (IOException e) {
@@ -66,5 +78,9 @@ public class ServerHandlerClient implements Runnable{
     public void sendMessage(Message message) throws IOException {
         writer.writeObject(message);
         System.out.println("sending message in room" + clientRoom);
+    }
+    public void sendCanvasState(CanvasState canvasState) throws IOException{
+        writer.writeObject(canvasState);
+        System.out.println("sending canvasState in room" + clientRoom);
     }
 }
