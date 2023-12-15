@@ -3,7 +3,12 @@ package com.example.printme.server;
 import com.example.printme.client.Client;
 import com.example.printme.controllers.GameController;
 import com.example.printme.helpers.ChatRoom;
+import com.example.printme.helpers.ClientHandler;
 import com.example.printme.helpers.Message;
+import com.example.printme.helpers.MessageListener;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -15,7 +20,7 @@ import java.util.Map;
 public class Server {
     private ServerSocket serverSocket;
     private ArrayList<ChatRoom> rooms;
-    private Map<ClientHandler, ChatRoom> clientRooms;
+    private Map<ServerHandlerClient, ChatRoom> clientRooms;
 
     public Server() throws IOException {
         serverSocket = new ServerSocket(1099);
@@ -23,7 +28,7 @@ public class Server {
         clientRooms = new HashMap<>();
     }
 
-    private void assignRoom(ClientHandler client) throws IOException {
+    private ChatRoom assignRoom(ServerHandlerClient client) throws IOException {
         ChatRoom availableRoom = null;
         for (ChatRoom room : rooms) {
             if(room.getClientsCount() < 10){
@@ -31,11 +36,11 @@ public class Server {
                 break;
             }
         }
-
         if (availableRoom != null) {
             clientRooms.put(client, availableRoom);
             availableRoom.addClient(client);
             System.out.println("Joined room: " + availableRoom);
+            return availableRoom;
         } else {
             ChatRoom newRoom = new ChatRoom("Room "+rooms.size()+1);
             clientRooms.put(client, newRoom);
@@ -43,6 +48,7 @@ public class Server {
             rooms.add(newRoom);
             System.out.println("Added new room for this Client: " + newRoom);
             System.out.println(newRoom.getClientsCount());
+            return newRoom;
         }
     }
 
@@ -52,95 +58,26 @@ public class Server {
         try {
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                System.out.println("Client connected");
-                ClientHandler handler = new ClientHandler(clientSocket);
-                assignRoom(handler);
-                // Запуск отдельного потока для каждого клиента
+                ServerHandlerClient handler = new ServerHandlerClient(clientSocket);
+                handler.setClientRoom(assignRoom(handler));
+                while (true) {
+                    String username = (String) handler.getReader().readObject();
+                    if (username == null || username.equals("/exit")) {
+                        continue;
+                    }else{
+                        handler.setUsername(username);
+                        break;
+                    }
+                }
                 new Thread(handler).start();
+                System.out.println("client connected");
             }
-        } catch (IOException e) {
+    } catch (IOException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             //executorService.shutdown();
-        }
-    }
-
-
-    public class ClientHandler implements Runnable {
-        private Socket clientSocket;
-        private String username;
-        private PrintWriter writer;
-        private BufferedReader reader;
-        private String roomName;
-
-        public ClientHandler(Socket clientSocket) {
-            this.clientSocket = clientSocket;
-            try {
-                this.writer = new PrintWriter(clientSocket.getOutputStream(), true);
-                this.reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        private void closeConnection() {
-            try {
-                if (clientSocket != null && !clientSocket.isClosed()) {
-                    clientSocket.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                // Обработка ошибки закрытия соединения
-            }
-        }
-
-        @Override
-        public void run() {
-            try {
-                while (true) {
-                    String message = reader.readLine();
-                    if (message == null || message.equals("/exit")) {
-                        break;
-                    } else {
-                        ChatRoom room = clientRooms.get(this);
-                        room.broadcastMessage(message, this);
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                // Обработка отключения клиента
-            }
-        }
-
-        public String getRoomName() {
-            return roomName;
-        }
-
-        public void sendMessage(String message) {
-            writer.println(message);
-        }
-
-        private void addMessage(Message message){
-           writer.print(message);
-        }
-
-        private void readMessages() {
-            try {
-                while (true) {
-                    String message = reader.readLine();
-                    if (message == null) {
-                        break;
-                    }
-                    // Обработка полученных сообщений, например, отображение в чате
-                    // chatArea.appendText(message + "\n");
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-                // Обработка ошибки чтения сообщения
-            } finally {
-                //closeConnection();
-            }
         }
     }
     public static void main(String[] args) {

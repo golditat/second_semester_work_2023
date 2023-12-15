@@ -1,11 +1,15 @@
 package com.example.printme.controllers;
 
 import com.example.printme.helpers.Message;
+import com.example.printme.helpers.MessageListener;
 import com.example.printme.server.Server;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
+
+import java.io.IOException;
 
 public class GameController {
 
@@ -22,17 +26,20 @@ public class GameController {
     private CheckBox eraser;
 
     @FXML
-    private ListView chatPane;
-
-    @FXML
-    private Label username;
+    private Label senderName;
 
     @FXML
     private Label messageText;
 
     @FXML
-    private TextArea textArea;
+    private TextField textFild;
 
+    private MessageListener messageListener;
+
+    public void setMessageListener(MessageListener listener) {
+        this.messageListener = listener;
+        System.out.println("listener done");
+    }
 
     public void initialize() {
         GraphicsContext g = canvas.getGraphicsContext2D();
@@ -51,9 +58,20 @@ public class GameController {
         });
     }
 
-    public void message(){
-        username.setText("user");
-        messageText.setText(textArea.getText());
+    public void addmessage() throws IOException {
+        senderName.setText("user");
+        messageText.setText(textFild.getText());
+        System.out.println("message");
+        if(messageListener != null){
+            messageListener.onMessageAdded("user", textFild.getText());
+        }
     }
 
+    public void onGettingMessage(Message message){
+        Platform.runLater(() -> {
+            senderName.setText(message.userName);
+            messageText.setText(message.text);
+            System.out.println("get message");
+        });
+    }
 }

@@ -1,16 +1,18 @@
 package com.example.printme.helpers;
 
 import com.example.printme.server.Server;
+import com.example.printme.server.ServerHandlerClient;
 
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChatRoom {
     private String roomName;
-    private List<Server.ClientHandler> clients;
-    private PrintWriter roomWriter;
+    private List<ServerHandlerClient> clients;
+    private ObjectOutputStream roomWriter;
     public Integer getClientsCount(){
         return clients.size();
     }
@@ -18,26 +20,23 @@ public class ChatRoom {
     public ChatRoom(String roomName) throws IOException {
         this.roomName = roomName;
         this.clients = new ArrayList<>();
-        this.roomWriter = new PrintWriter("Room_" + roomName + "_Log.txt");
     }
 
-    public void broadcastMessage(String message, Server.ClientHandler sender) {
-        for (Server.ClientHandler client : clients) {
+    public void broadcastMessage(Message message) throws IOException {
+        for (ServerHandlerClient client : clients) {
             // Не отправлять сообщение отправителю
-            if (client != sender) {
+            //if (!client.getUsername().equals(message.userName)) {
                 client.sendMessage(message);
-            }
+            //}
         }
         // Записать сообщение в лог комнаты
-        roomWriter.println(message);
-        roomWriter.flush();
     }
 
-    public void addClient(Server.ClientHandler client) {
+    public void addClient(ServerHandlerClient client) {
         clients.add(client);
     }
 
-    public void removeClient(Server.ClientHandler client) {
+    public void removeClient(ServerHandlerClient client) {
         clients.remove(client);
     }
 
