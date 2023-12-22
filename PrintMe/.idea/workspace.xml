@@ -4,19 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de87716d-d262-4bd9-a727-82e7e564a50d" name="Changes" comment="done broadcast canvas state">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/WordList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/printme/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="de87716d-d262-4bd9-a727-82e7e564a50d" name="Changes" comment="add game logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/application/PrintMeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/application/PrintMeApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/CanvasState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/CanvasState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/RegController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ChatRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ServerHandlerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ServerHandlerClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/printme/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/printme/game-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +77,7 @@
       <workItem from="1701613640419" duration="2304000" />
       <workItem from="1701865950187" duration="22148000" />
       <workItem from="1702575128497" duration="27850000" />
-      <workItem from="1703197803147" duration="8540000" />
+      <workItem from="1703197803147" duration="13828000" />
     </task>
     <task id="LOCAL-00001" summary="create project">
       <option name="closed" value="true" />
@@ -138,7 +135,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702647634524</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add game logic">
+      <option name="closed" value="true" />
+      <created>1703252437135</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1703252437135</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +168,8 @@
     <MESSAGE value="the creation of a multi-user chat with rooms" />
     <MESSAGE value="done multi-user chat with rooms" />
     <MESSAGE value="done broadcast canvas state" />
-    <option name="LAST_COMMIT_MESSAGE" value="done broadcast canvas state" />
+    <MESSAGE value="add game logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="add game logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

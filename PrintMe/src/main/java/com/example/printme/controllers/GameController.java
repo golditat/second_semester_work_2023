@@ -34,12 +34,6 @@ public class GameController {
     private CheckBox eraser;
 
     @FXML
-    private Label senderName;
-
-    @FXML
-    private Label messageText;
-
-    @FXML
     private TextField textFild;
 
     @FXML
@@ -54,6 +48,8 @@ public class GameController {
     private MessageListener messageListener;
 
     private Boolean isCanvasClicable = true;
+
+    public String username;
 
     public void setMessageListener(MessageListener listener) {
         this.messageListener = listener;
@@ -99,7 +95,7 @@ public class GameController {
     public void addmessage() throws IOException {
 
 
-        Label sender = new Label("user");
+        Label sender = new Label(username);
         sender.getStyleClass().add("label1");
 
         Label messText = new Label(textFild.getText());
@@ -110,7 +106,7 @@ public class GameController {
         //messageText.setText(textFild.getText());
         System.out.println("message");
         if(messageListener != null){
-            messageListener.onMessageAdded("user", textFild.getText());
+            messageListener.onMessageAdded(username, textFild.getText());
         }
     }
 

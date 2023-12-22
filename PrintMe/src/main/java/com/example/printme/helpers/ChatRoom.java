@@ -10,7 +10,6 @@ import java.util.Random;
 public class ChatRoom {
     private String roomName;
     private List<ServerHandlerClient> clients;
-    private ObjectOutputStream roomWriter;
     private Boolean zherebievka = false;
 
     private ServerHandlerClient arter;
@@ -29,13 +28,14 @@ public class ChatRoom {
 
     public void broadcastMessage(Message message) throws IOException {
         messagesInThisGame.add(message);
-        arter.sendMessage(message);
+        if(arter!= null) {
+            arter.sendMessage(message);
+        }
         for (ServerHandlerClient client : clients) {
             // Не отправлять сообщение отправителю
-            //подумать над уникальностью имен
-            //if (!client.getUsername().equals(message.userName)) {
+            if (!client.getUsername().equals(message.userName)) {
                 client.sendMessage(message);
-            //}
+            }
         }
         gameValidation(message);
     }

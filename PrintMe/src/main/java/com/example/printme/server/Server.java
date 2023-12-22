@@ -53,7 +53,7 @@ public class Server {
                 handler.setClientRoom(assignRoom(handler));
                 while (true) {
                     String username = (String) handler.getReader().readObject();
-                    if (username == null || username.equals("/exit")) {
+                    if (username == null) {
                         continue;
                     }else{
                         handler.setUsername(username);

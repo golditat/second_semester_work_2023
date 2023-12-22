@@ -12,7 +12,7 @@ import java.net.Socket;
 public class ServerHandlerClient implements Runnable{
     private ChatRoom clientRoom;
     private Socket socet;
-    private String username;
+    private String username = "";
     private ObjectOutputStream writer;
     private ObjectInputStream reader;
     public ObjectOutputStream getWriter() {
@@ -84,5 +84,6 @@ public class ServerHandlerClient implements Runnable{
 
     public void sendCanvasState(CanvasState canvasState) throws IOException{
         writer.writeObject(canvasState);
+        System.out.println("sending canvas state in room" + clientRoom);
     }
 }

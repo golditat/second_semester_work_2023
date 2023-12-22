@@ -24,6 +24,10 @@ public class ClientHandler implements Runnable, MessageListener, Serializable {
         return reader;
     }
 
+    public void setUsername(String name){
+        username = name;
+    }
+
     public ClientHandler(Socket clientSocket, FXMLLoader loader) {
         try {
             this.socket = clientSocket;
@@ -50,6 +54,7 @@ public class ClientHandler implements Runnable, MessageListener, Serializable {
                 }else if(o instanceof CanvasState){
                     CanvasState canvasState = (CanvasState) o;
                     if(canvasState == null){
+                        System.out.println("getting empty canvas state");
                         continue;
                     }else{
                         onCanvasStateGetting(canvasState);
@@ -62,7 +67,6 @@ public class ClientHandler implements Runnable, MessageListener, Serializable {
                         GameController controller = loader.getController();
                         if (role.equals("tell")) {
                             controller.onTellerRole();
-
                         } else {
                             controller.onArterRole(role);
                         }

@@ -13,32 +13,40 @@ import java.net.Socket;
 public class Client extends Application {
 
     private Socket socket;
-
+     private PrintMeApplication app;
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        System.out.println("get connection...");
-        initConnection();
         PrintMeApplication app = new PrintMeApplication();
+        app.setClient(this);
+        this.app = app;
         Platform.runLater(()-> {
-            ClientHandler handler = new ClientHandler(socket, app.getLoader());
-            GameController controller = app.getLoader().getController();
-            controller.setMessageListener(handler);
             try {
                 app.start(primaryStage);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             System.out.println("done start");
+        });
+    }
+
+    public void handleNextScreenEvent(String username) {
+        System.out.println("Переход на следующий экран выполнен");
+        Platform.runLater(()-> {
+            initConnection();
+            ClientHandler handler = new ClientHandler(socket, app.getLoader());
+            handler.setUsername(username);
             try {
-                handler.getWriter().writeObject("user");
+                handler.getWriter().writeObject(username);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             new Thread(handler).start();
+            GameController controller = app.getLoader().getController();
+            controller.setMessageListener(handler);
         });
     }
 
