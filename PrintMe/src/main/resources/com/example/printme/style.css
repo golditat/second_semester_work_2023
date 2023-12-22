@@ -1,0 +1,10 @@
+.label1{
+    -fx-text-fill: #c0c0c0;
+    -fx-font-size: 12px;
+}
+.label2{
+    -fx-background-color: DODGERBLUE;
+    -fx-border-radius: 10;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+}

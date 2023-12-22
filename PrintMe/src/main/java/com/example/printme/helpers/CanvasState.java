@@ -1,7 +1,5 @@
 package com.example.printme.helpers;
 
-import javafx.scene.paint.Color;
-
 import java.io.Serializable;
 
 public class CanvasState implements Serializable {

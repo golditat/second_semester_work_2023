@@ -47,12 +47,25 @@ public class ClientHandler implements Runnable, MessageListener, Serializable {
                     } else {
                         onMessageGetting(message);
                     }
-                }else{
+                }else if(o instanceof CanvasState){
                     CanvasState canvasState = (CanvasState) o;
                     if(canvasState == null){
                         continue;
                     }else{
                         onCanvasStateGetting(canvasState);
+                    }
+                }else{
+                    String role = (String) o;
+                    if (role ==null) {
+                        continue;
+                    }else{
+                        GameController controller = loader.getController();
+                        if (role.equals("tell")) {
+                            controller.onTellerRole();
+
+                        } else {
+                            controller.onArterRole(role);
+                        }
                     }
                 }
             }
@@ -91,7 +104,6 @@ public class ClientHandler implements Runnable, MessageListener, Serializable {
 
     @Override
     public void onCanvasStateAdded(CanvasState canvasState) throws IOException {
-        System.out.println("hendler added canvas state"+canvasState.toString());
         sendCanvasState(canvasState);
     }
 
@@ -99,6 +111,5 @@ public class ClientHandler implements Runnable, MessageListener, Serializable {
     public void onCanvasStateGetting(CanvasState canvasState) throws IOException {
         GameController controller = loader.getController();
         controller.onGettingCanvasState(canvasState);
-        System.out.println("handler get canvas state");
     }
 }

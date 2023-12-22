@@ -5,18 +5,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import java.net.URL?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.printme.controllers.GameController">
-   <children>
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+    <children>
       <SplitPane dividerPositions="0.29797979797979796" prefHeight="400.0" prefWidth="600.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
                   <TextField fx:id="textFild" layoutY="354.0" prefHeight="45.0" prefWidth="134.0" />
-                  <Button layoutX="134.0" layoutY="354.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="41.0" text="-&gt;" onAction="#addmessage" />
-                   <ScrollPane prefHeight="350.0" prefWidth="175.0">
+                  <Button fx:id="sendingButton" layoutX="134.0" layoutY="354.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="41.0" text="-&gt;" onAction="#addmessage" />
+                   <ScrollPane fx:id="messagePane" prefHeight="350.0" prefWidth="175.0">
                        <content>
-                                   <Label fx:id="senderName" prefHeight="30.0" prefWidth="184.0" text="Label" />
-                                   <Label fx:id="messageText" layoutY="32.0" prefHeight="30.0" prefWidth="184.0" style="-fx-background-color: #c0c0c0; -fx-border-radius: 10px;" text="Label" />
+                           <VBox fx:id="content" ></VBox>
                        </content>
                    </ScrollPane>
                </children></AnchorPane>

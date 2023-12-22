@@ -56,7 +56,6 @@ public class ServerHandlerClient implements Runnable{
                     if (message == null || message.equals("/exit")) {
                         continue;
                     } else {
-                        System.out.println("user send message" + socet.toString());
                         clientRoom.broadcastMessage(message);
                     }
                 }else{
@@ -64,7 +63,6 @@ public class ServerHandlerClient implements Runnable{
                     if(canvasState == null){
                         continue;
                     }else{
-                        System.out.println("server getting canvasstate" + socet.toString());
                         clientRoom.broadcastCanvasState(canvasState);
                     }
                 }
@@ -79,8 +77,12 @@ public class ServerHandlerClient implements Runnable{
         writer.writeObject(message);
         System.out.println("sending message in room" + clientRoom);
     }
+    public void sentRole(String role) throws IOException{
+        writer.writeObject(role);
+        System.out.println("role is send");
+    }
+
     public void sendCanvasState(CanvasState canvasState) throws IOException{
         writer.writeObject(canvasState);
-        System.out.println("sending canvasState in room" + clientRoom);
     }
 }

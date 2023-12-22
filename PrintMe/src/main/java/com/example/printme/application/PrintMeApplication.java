@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PrintMeApplication extends Application {
-    private FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/printme/game-view.fxml"));
+    private FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/printme/reg-view.fxml"));
     private Parent root;
 
     public PrintMeApplication() throws IOException {
