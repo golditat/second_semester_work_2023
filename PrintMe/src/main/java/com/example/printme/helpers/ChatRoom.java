@@ -17,6 +17,7 @@ public class ChatRoom {
     private String word = "";
 
     private ArrayList<Message> messagesInThisGame = new ArrayList<>();
+    private ArrayList<CanvasState> canvasInThisGame = new ArrayList<>();
     public Integer getClientsCount(){
         return clients.size();
     }
@@ -40,6 +41,7 @@ public class ChatRoom {
         gameValidation(message);
     }
     public void broadcastCanvasState(CanvasState canvasState) throws IOException {
+        canvasInThisGame.add(canvasState);
         for (ServerHandlerClient client : clients) {
             client.sendCanvasState(canvasState);
         }
@@ -65,6 +67,9 @@ public class ChatRoom {
             for(Message message: messagesInThisGame){
                 client.sendMessage(message);
             }
+            for(CanvasState canvasState:canvasInThisGame){
+                client.sendCanvasState(canvasState);
+            }
         }
     }
 
@@ -73,6 +78,7 @@ public class ChatRoom {
         zherebievka = true;
         clients.remove(arter);
         word = WordList.getRandomWord();
+        canvasInThisGame = new ArrayList<>();
         broadcastRoles();
         Message message = new Message("starting game", "SERVER");
         broadcastMessage(message);
@@ -95,6 +101,7 @@ public class ChatRoom {
         zherebievka = false;
         word = "";
         messagesInThisGame.clear();
+        canvasInThisGame.clear();
         onGameStart();
     }
     private ServerHandlerClient zhrebi(){

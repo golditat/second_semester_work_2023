@@ -44,9 +44,9 @@ public class Client extends Application {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            new Thread(handler).start();
             GameController controller = app.getLoader().getController();
             controller.setMessageListener(handler);
+            new Thread(handler).start();
         });
     }
 

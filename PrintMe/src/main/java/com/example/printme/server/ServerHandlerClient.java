@@ -84,6 +84,6 @@ public class ServerHandlerClient implements Runnable{
 
     public void sendCanvasState(CanvasState canvasState) throws IOException{
         writer.writeObject(canvasState);
-        System.out.println("sending canvas state in room" + clientRoom);
+        System.out.println("sending canvas state in room" + clientRoom + " for client " + socet.toString());
     }
 }

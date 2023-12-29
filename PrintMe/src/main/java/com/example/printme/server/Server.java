@@ -22,7 +22,7 @@ public class Server {
     private ChatRoom assignRoom(ServerHandlerClient client) throws IOException {
         ChatRoom availableRoom = null;
         for (ChatRoom room : rooms) {
-            if(room.getClientsCount() < 10){
+            if(room.getClientsCount() < 4){
                 availableRoom = room;
                 break;
             }
@@ -49,6 +49,7 @@ public class Server {
         try {
             while (true) {
                 Socket clientSocket = serverSocket.accept();
+                System.out.println("dfvsgbsedg");
                 ServerHandlerClient handler = new ServerHandlerClient(clientSocket);
                 handler.setClientRoom(assignRoom(handler));
                 while (true) {

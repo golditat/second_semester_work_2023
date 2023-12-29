@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de87716d-d262-4bd9-a727-82e7e564a50d" name="Changes" comment="add game logic">
+    <list default="true" id="de87716d-d262-4bd9-a727-82e7e564a50d" name="Changes" comment="SEMESTER WORK IS DONE(NOW ADDED SWITCHING BETWEEN SCREENS AND ADDING A USERNAME)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/application/PrintMeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/application/PrintMeApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/controllers/RegController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ChatRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ChatRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/helpers/ClientHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ServerHandlerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/printme/server/ServerHandlerClient.java" afterDir="false" />
     </list>
@@ -52,7 +48,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Huawei/Desktop/SpaceShooter-master/SpaceShooter-master",
+    "last_opened_file_path": "C:/Users/Huawei/Desktop/MemoryPuzzle",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -66,6 +62,40 @@
       <recent name="C:\Users\Huawei\Desktop\semester_Work\second_semester_work_2023\PrintMe\src\main\resources\com\example\printme" />
     </key>
   </component>
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.printme.client.Client" />
+      <module name="PrintMe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.printme.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.printme.server.Server" />
+      <module name="PrintMe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.printme.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.Client" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -77,7 +107,9 @@
       <workItem from="1701613640419" duration="2304000" />
       <workItem from="1701865950187" duration="22148000" />
       <workItem from="1702575128497" duration="27850000" />
-      <workItem from="1703197803147" duration="13828000" />
+      <workItem from="1703197803147" duration="16071000" />
+      <workItem from="1703329844980" duration="9175000" />
+      <workItem from="1703847688039" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="create project">
       <option name="closed" value="true" />
@@ -143,7 +175,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703252437135</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="SEMESTER WORK IS DONE(NOW ADDED SWITCHING BETWEEN SCREENS AND ADDING A USERNAME)">
+      <option name="closed" value="true" />
+      <created>1703256720044</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1703256720044</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,7 +209,8 @@
     <MESSAGE value="done multi-user chat with rooms" />
     <MESSAGE value="done broadcast canvas state" />
     <MESSAGE value="add game logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="add game logic" />
+    <MESSAGE value="SEMESTER WORK IS DONE(NOW ADDED SWITCHING BETWEEN SCREENS AND ADDING A USERNAME)" />
+    <option name="LAST_COMMIT_MESSAGE" value="SEMESTER WORK IS DONE(NOW ADDED SWITCHING BETWEEN SCREENS AND ADDING A USERNAME)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
